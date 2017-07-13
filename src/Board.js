@@ -150,19 +150,14 @@
       
       if (majorDiagonalColumnIndexAtFirstRow >= 0) {
         for (var i = majorDiagonalColumnIndexAtFirstRow, j = 0; i < matrix.length; i++, j++) {
-          // console.log(matrix);
-          // console.log('i',i);
-          // console.log('j',j);
           if (matrix[j][i] === 1) {
             count++;
           }
         }
-        
         return count > 1;
       } else {
         
         for (var i = majorDiagonalColumnIndexAtFirstRow, j = 0; i < 0; i++, j++) {
-          
         }
         
         for (; j < matrix.length; i++, j++) {
