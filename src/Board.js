@@ -155,7 +155,7 @@
           }
         }
         return count > 1;
-      } else {
+      } else {  // if (majorDiagonalColumnIndexAtFirstRow < 0)
         
         for (var i = majorDiagonalColumnIndexAtFirstRow, j = 0; i < 0; i++, j++) {
         }
@@ -240,11 +240,24 @@
         }
       }
       return false;
-    }
+    },
 
     /*--------------------  End of Helper Functions  ---------------------*/
 
-
+    copyMatrix: function() {
+      var originalMatrix = this.rows();
+      var newMatrix = [];
+      
+      for (var i = 0; i < originalMatrix.length; i++) {
+        var newRow = originalMatrix[i].slice();
+        newMatrix.push(newRow);
+      }
+      
+      return new Board(newMatrix);
+    }
+    
+    
+    
   });
 
   var makeEmptyMatrix = function(n) {
