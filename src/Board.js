@@ -81,11 +81,25 @@
     hasRowConflictAt: function(rowIndex) {
       var row = this.get(rowIndex);
       var count = 0;
-      row.forEach(function(space) {
-        if (space === 1) {
-          count++;
-        }
-      });
+       
+       for (var i = 0; i < row.length; i++) {
+          if (row[i] === 1) {
+             count++;
+          }
+          if (count > 1) {
+             break;
+          }
+       }
+       
+       
+//      row.forEach(function(space) {
+//        if (space === 1) {
+//          count++;
+//        }
+//         if (count > 1) {
+//            break;
+//         }
+//      });
       return count > 1;
     },
 
@@ -123,6 +137,9 @@
         if (matrix[j][colIndex] === 1) {
           count++;
         }
+         if (count > 1) {
+            break;
+         }
       }
       return count > 1;
     },
@@ -254,7 +271,19 @@
       }
       
       return new Board(newMatrix);
-    }
+    },
+     
+    showMatrix: function() {
+//       console.log(this.attributes);
+       for(var key in this.attributes) {
+          if(key === 'n'){
+             continue;
+          }
+
+          console.log(this.attributes[key]);
+          console.log();
+       }
+    } 
     
     
     
